@@ -1,0 +1,39 @@
+{
+  "name": "API-REST",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx ts-node-dev --transpile-only --no-notify src/server.ts",
+    "keys": "npm ts-node src/config/generateKeyPairs.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandreRimes/Trabalho-individual-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AlexandreRimes/Trabalho-individual-backend/issues"
+  },
+  "homepage": "https://github.com/AlexandreRimes/Trabalho-individual-backend#readme",
+  "devDependencies": {
+    "@prisma/client": "^7.9.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.1.2",
+    "@types/pg": "^8.20.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "prisma": "^7.9.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.9.1",
+    "pg": "^8.22.0"
+  }
+}
