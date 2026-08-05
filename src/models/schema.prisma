@@ -19,7 +19,7 @@ model User {
   name         String
   email        String    @unique
   cpf          String    @unique
-  phoneNumber  String
+  phoneNumber  String    
   salt         String
   hash         String
 
