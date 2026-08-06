@@ -4,10 +4,13 @@ import { cp } from "node:fs";
 import auth from "../config/auth"
 import { request } from "node:http";
 import { UserUpdateInput } from "../generated/prisma/models";
+import { PrismaPg } from '@prisma/adapter-pg'; 
 
-const prisma = new PrismaClient({} as any);
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+const prisma = new PrismaClient({ adapter });
 
-class userController{
+
+export class UserController{
 
 
     public static async createUser(req:Request, resp:Response){
