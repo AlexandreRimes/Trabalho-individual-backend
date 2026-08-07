@@ -45,7 +45,7 @@ export class UserController{
         try{    
             const users = await prisma.user.findMany()
 
-            return resp.status(201).json(users);
+            return resp.status(200).json(users);
 
         }
         catch(error:any){
@@ -57,10 +57,10 @@ export class UserController{
 
     public static async readUser(req:Request, resp:Response){
         try{
-            const {id} = req.params
+            const {userId} = req.params
             const foundUser = await prisma.user.findUnique({
                 where:{
-                    id:String(id)
+                    id:String(userId)
                 }
             })
 
@@ -68,7 +68,7 @@ export class UserController{
                 return resp.status(404).json({ message: "Usuário não encontrado" });
             }
 
-            return resp.status(201).json(foundUser);
+            return resp.status(200).json(foundUser);
 
         }
         catch(error:any){

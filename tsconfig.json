@@ -43,3 +43,4 @@
   "include": ["src/**/*", "src/prisma.config.ts"],
   "exclude": ["node_modules","dist","scripts","test"]
 }
+  
