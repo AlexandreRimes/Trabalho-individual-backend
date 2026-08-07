@@ -5,9 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsx watch src/server.ts",
+    "start": "tsx watch src/server.ts",
     "keys": "npx ts-node src/config/generateKeyPairs.ts"
   },
+  "prisma": {
+    "schema": "./src/models/schema.prisma",
+    "seed": "ts-node src/models/seed/seeder.ts"
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlexandreRimes/Trabalho-individual-backend.git"
@@ -31,6 +36,7 @@
     "express": "^5.2.1",
     "prisma": "^7.9.1",
     "ts-node": "^10.9.2",
+    "tsx": "^4.23.10",
     "typescript": "^7.0.2"
   },
   "dependencies": {

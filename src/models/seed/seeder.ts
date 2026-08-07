@@ -1,17 +1,27 @@
-    // import { categorySeeder } from "./categorySeeder";
-    // import { prisma } from "../../prisma";
+import { Prisma, PrismaClient } from "../../generated/prisma/client";
+import { PrismaPg } from '@prisma/adapter-pg'; 
+import {UserSeeder} from "./userSeeder"
 
-    // async function main() {
-    //   await prisma.$connect();
-    //   await categorySeeder(prisma, 10);
-    // }
 
-    // main()
-    //   .then(async () => {
-    //     await prisma.$disconnect();
-    //   })
-    //   .catch(async (e: any) => {
-    //     console.error(e);
-    //     await prisma.$disconnect();
-    //     process.exit(1);
-    //   });
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+const prisma = new PrismaClient({ adapter });
+
+async function main(){
+
+        await prisma.$connect()
+
+        UserSeeder(prisma,20)
+}
+
+
+main()
+    .then(async() =>{
+
+            await prisma.$disconnect()
+
+    })
+    .catch(async(e:any)=>{
+        console.log(e)
+        await prisma.$disconnect()
+        process.exit(1)
+    })
